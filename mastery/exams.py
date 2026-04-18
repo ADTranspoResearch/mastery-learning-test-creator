@@ -12,6 +12,10 @@ class Exam:
 
         exam_q = []
         for pol in desired_pols:
+
+            # This needs to be here to make the sample actually sample randomly
+            subset = self.question_bank.df[self.question_bank.df["pol"] == pol]
+            # This needs to be here to make the sample actually sample randomly
             exam_q.append(
                 f"{self.question_bank.df.loc[self.question_bank.df["pol"] == pol, "question"]
                 .sample(n=1)
