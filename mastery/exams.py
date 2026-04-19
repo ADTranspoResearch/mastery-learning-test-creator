@@ -16,12 +16,9 @@ class Exam:
             # This needs to be here to make the sample actually sample randomly
             subset = self.question_bank.df[self.question_bank.df["pol"] == pol]
             # This needs to be here to make the sample actually sample randomly
-            exam_q.append(
-                f"{self.question_bank.df.loc[self.question_bank.df["pol"] == pol, "question"]
-                .sample(n=1)
-                .iloc[0]
-                }\n"
-            )
+            question = self.question_bank.df.loc[self.question_bank.df["pol"] == pol, "question"].sample(n=1).iloc[0]
+            question_text = f"{question}\\n"
+            exam_q.append(question)
         exam_path = ROOT / f"{self.name}_exam.txt"
         with open(exam_path, 'w', encoding='utf-8') as f:
             f.writelines(exam_q)

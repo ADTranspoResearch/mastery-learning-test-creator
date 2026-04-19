@@ -8,4 +8,5 @@ def home():
     ui.label("Mastery Learning Evaluation Tool").classes("text-h2")
 
     ui.button("Add question to bank", on_click=lambda: go('/question'))
+    ui.button("View questions in bank", on_click=lambda: go('/view_questions'))
     ui.button("Generate new Evaluation", on_click=lambda: go('/exam'))
